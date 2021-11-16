@@ -121,8 +121,7 @@ struct Gift
 ```
 
 - Having this in mind, attributes allow us to do the same with classes:
-- **What are attributes?**
-  - Data that **belongs** to the class
+- Use special method `__init__` to initialize data attributes
   
 ```python
 class Gift():
@@ -136,24 +135,115 @@ class Gift():
 ## Methods can be easily assigned to Classes and you can work with them as you are used with functions.
 
 - method definition = function definition within class
-- **Use self as the 1st argument in method definition**
+- **Use `self` as the 1st argument in method definition**
 
 ```python
 class Gift():
-    
-    def pack (self, packer):
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        self.height = height
+        self.color = color
+
+    def pack(self, packer):
         print("This gift is packed by " + packer)
 ```
 
-- Ignore self when calling method on an object (Python takes care of that for you)
+## Before we use a certain method we need to create an instance of a class (object).
+
+- Data atrributes of an instance are called **instance variables**
+- Ignore `self` when calling method on an object (Python takes care of that for you)
+- `self` is a placeholder for particular object used in class definition and is the first argument of any method
 
 ```python
->>> gift_1 = Gift()
+# create a new object of type Gift and pass in content, width, height and color to __init__
+>>> gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+
+# use dot operator to access any attribute of gift_1
+>>> print(gift_1.color)
+
+# use dot operator to access any method of gift_1
+>>> gift_1.pack("Nele")
+```
+Output:
+```
+This gift is packed by Nele
+```
+- `gift_1.pack("Nele")` is interpreted as `Gift.pack(gift_1, "Nele")`
+
+```python
+# create a new object of type Gift and pass in content, width, height and color to __init__
+>>> gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+
+# use dot operator to access any method of gift_1
 >>> gift_1.pack("Nele")
 ```
 ```
-This gift is packed by Nele.
+This gift is packed by Nele
 ```
 
-## Similar to working with structs we need a special syntax to properly implement classes.
-- Use special method `__init__` to initialize data attributes
+## Now it's time to combine everything and bring it all together.
+
+```python
+class Gift():
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        self.height = height
+        self.color = color
+
+    def pack(self, packer):
+        print("This gift is packed by " + packer)
+
+    def gift(self, gifted):
+        print(f"This gift contains a {self.content} and is gifted to {gifted}.")
+
+
+def main():
+    gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+    gift_1.gift("David")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+
+```python
+class Gift():
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        self.height = height
+        self.color = color
+
+    def pack(self, packer):
+        print("This gift is packed by " + packer)
+
+    def gift_to(self, gifted):
+        print(f"This gift contains a {self.content} and is gifted to {gifted}.")
+```
+
+```python
+>>> gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+>>> gift_1.gift_to("David")
+```
+```
+This gift contains a CS50 Rubber Duck and is gifted to David.
+```
+
+```python
+class MyClass():
+    # method definition in class
+    # first argument is self
+    def my_method1(self, other_arguments...):
+        # do things here
+    
+    def my_method2(self, my_attr):
+        # attribute created by assignment 
+        self.my_attr = my_attr
+        ...
+```
+
+```python
+```
