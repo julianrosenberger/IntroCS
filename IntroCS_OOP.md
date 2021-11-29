@@ -246,4 +246,147 @@ class MyClass():
 ```
 
 ```python
+class Person:
+    def __init__(self, name):
+        self.name = name            # <--- Create the .name attribute and set it to name parameter
+        print("The __init__ method was called")
+
+person1 = Person("David Malan") # <--- __init__ is implicitly called
+```
+Output:
+```python
+The __init__ method was called
+```
+
+```python
+class MyClass():
+    # This works but isn't recommended
+    def my_method(person, attr):
+        person.attr = attr
+```
+
+```python
+class Gift():
+    ...
+
+gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+print(gift_1)
+```
+Output:
+```
+<__main__.Gift object at 0x10337ccd0>
+```
+
+```python
+class Gift():
+    ...
+
+    def __str__(self):
+        return 'This gift contains ' + self.content + ' and has a width of ' + str(self.width)
+
+gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+print(gift_1.__str__())
+print(gift_1)
+```
+Output:
+```
+This gift contains CS50 Rubber Duck and has a width of 20.0
+This gift contains CS50 Rubber Duck and has a width of 20.0
+```
+
+```python
+gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+print(gift_1)
+print(type(gift_1))
+```
+```
+This gift contains CS50 Rubber Duck and has a width of 20.0
+<__main__.Gift object at 0x10337ccd0>
+```
+```python
+print(Gift)
+print(type(Gift))
+```
+```
+<class '__main__.Gift'>
+<class 'type'>
+```
+```python
+print(isinstance(gift_1, Gift)
+```
+```
+True
+```
+
+## Getter and setter methods
+Instead of using the `"."` (dot)-notation to access and edit data attributes outside classes, it's best practice to work with `getter` and `setter` methods.
+```python
+class Gift():
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        ...
+    def get_width(self):
+        return self.width
+    def set_width(self, width):
+        self.width = width
+```
+
+# Core Concepts of OOP
+## Inheritance
+
+### Superclass Animal
+```python
+class Animal(object):
+    def __init__(self, age):
+        self.age = age
+        self.name = None
+    def get_age(self):
+        return self.age
+    def get_name(self):
+        return self.name
+    def set_age(self, age):
+        self.age = age
+    def set_name(self, name):
+        self.name = name
+    def __str__(self):
+        return "animal:"+str(self.name)+":"+str(self.age)
+```
+
+### Subclass Person
+```python
+class Person(Animal):
+    def __init__(self, name, age):
+        Animal.__init__(self, age)
+        self.set_name(name)
+        self.friends = []
+    def get_friends(self):
+        return self.friends
+    def add_friend(self, friend):
+        if name not in self.friends:
+            self.friends.append(friend)
+    def speak(self):
+        print("hello")
+    def __str__(self):
+        return "person:"+str(self.name)+":"+str(self.age)
+```
+
+```python
+class Person(Animal):
+
+    personID = 0
+
+    def __init__(self, name, age):
+        Animal.__init__(self, age)
+        self.set_name(name)
+        self.ID = Person.personID
+        self.friends = []
+```
+
+```python
+gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+```
+```python
+print(gift_1.width)
+gift_1.get_width
 ```
