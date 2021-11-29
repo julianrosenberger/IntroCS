@@ -182,7 +182,7 @@ This gift is packed by Nele
 This gift is packed by Nele
 ```
 
-## Now it's time to combine everything and bring it all together.
+## Now it's time to bring it all together.
 
 ```python
 class Gift():
