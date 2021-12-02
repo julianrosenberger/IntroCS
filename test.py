@@ -70,13 +70,15 @@ print(gift_1.height)
 print(gift_1._get_width())
 print(gift_1.get_content())'''
 
-class Gift():
+'''class Gift():
     def __init__(self, content, width, height, color):
         self.content = content
         self.width = width
         self.height = height
         self.color = color
-
+    def show(self):
+        #print('This gift contains ' + self.content + ' and has a width of ' + str(self.width))
+        print(self.content, self.width, self.height, self.color)
 
 class ChristmasTree():
     def __init__(self, max_gifts):
@@ -94,6 +96,7 @@ class ChristmasTree():
 def main():
     # Initialize gifts
     gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+    gift_1.show()
     gift_2 = Gift("CS50 Stress Ball", 30.0, 20.0, "pink")
     # Initalize tree
     tree = ChristmasTree(5)
@@ -104,6 +107,25 @@ def main():
     print("After removal:")
     tree.get_contents()
 
+
+if __name__ == "__main__":
+    main()'''
+
+class Gift():
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        self.height = height
+        self.color = color
+    def __str__(self):
+        return 'This gift contains ' + self.content + ' and has the color ' + self.color 
+
+
+def main():
+    gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+    gift_2 = Gift("CS50 Stress Ball", 30.0, 20.0, "pink")
+
+    print(gift_1)
 
 if __name__ == "__main__":
     main()

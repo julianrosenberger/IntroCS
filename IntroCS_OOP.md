@@ -264,7 +264,9 @@ class MyClass():
     def my_method(person, attr):
         person.attr = attr
 ```
-
+## Print representation of an object
+### Default print representation
+- By default, the `print` representation of objects is very uninformative
 ```python
 class Gift():
     ...
@@ -276,12 +278,26 @@ Output:
 ```
 <__main__.Gift object at 0x10337ccd0>
 ```
-
-
+### Define custom method to print objects
+- Using a custom method, allows us to make the `print`representation more informative
+- define `show` to print object of class `Gift`
 ```python
 class Gift():
     ...
+    def show(self):
+        print(self.content, self.width, self.height, self.color)
 
+gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+gift_1.show()
+```
+Output:
+```
+CS50 Rubber Duck 20.0 40.0 green
+```
+### Override print by using `__str__` method
+```python
+class Gift():
+    ...
     def __str__(self):
         return 'This gift contains ' + self.content + ' and has a width of ' + str(self.width)
 
@@ -418,9 +434,8 @@ gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
 print(gift_1.width)
 gift_1.get_width
 ```
-<<<<<<< HEAD
 
-##  Sepcial Methods in Python OOP
+##  Special Methods in Python OOP
 Sepcial methods in OOP allow us to override common methods, which we know already.
 ```python
 __add__(self, other)
