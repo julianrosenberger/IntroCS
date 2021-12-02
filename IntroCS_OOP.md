@@ -182,7 +182,7 @@ This gift is packed by Nele
 This gift is packed by Nele
 ```
 
-## Now it's time to combine everything and bring it all together.
+## Now it's time to bring it all together.
 
 ```python
 class Gift():
@@ -395,6 +395,7 @@ gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
 print(gift_1.width)
 gift_1.get_width
 ```
+<<<<<<< HEAD
 
 ##  Sepcial Methods in Python OOP
 Sepcial methods in OOP allow us to override common methods, which we know already.
