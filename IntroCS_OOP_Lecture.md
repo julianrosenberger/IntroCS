@@ -1,0 +1,96 @@
+# Classes
+## Introduce a class
+```python
+class Gift():
+    # define attributes here
+    pass
+```
+## Create instances of class
+```python
+>>> gift_1 = Gift()
+>>> gift_2 = Gift()
+```
+## Data attributes
+```python
+class Gift():
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        self.height = height
+        self.color = color
+```
+```python
+gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+gift_2 = Gift("CS50 Stress Ball", 30.0, 20.0, "pink")
+```
+## Methods
+```python
+class Gift():
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        self.height = height
+        self.color = color
+
+    def pack(self, packer):
+        print("This gift is packed by " + packer)
+
+    def gift(self, gifted):
+        print(f"This gift contains a {self.content} and is gifted to {gifted}.")
+```
+## Combine everything
+```python
+class Gift():
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        self.height = height
+        self.color = color
+
+    def pack(self, packer):
+        print("This gift is packed by " + packer)
+
+    def gift_to(self, gifted):
+        print(f"This gift contains a {self.content} and is gifted to {gifted}.")
+
+
+def main():
+    gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+    gift_1.gift_to("David")
+
+
+if __name__ == "__main__":
+    main()
+
+```
+# Encapsulation & Information hiding
+```python
+class Gift():
+    def __init__(self, content, width, height):
+        self.__content = content
+        self._width = width
+        self.height = height
+    def __get_height(self):
+        return self.height
+    def _get_width(self):
+        return self._width
+    def get_content(self):
+        return self.__content
+
+
+def main():
+    gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0)
+
+    ## Data attributes
+    #print(gift_1.__content)
+    print(gift_1._width)
+    print(gift_1.height)
+
+    ## Methods
+    #print(gift_1.__get_height())
+    print(gift_1._get_width())
+    print(gift_1.get_content())
+```
+
+
+

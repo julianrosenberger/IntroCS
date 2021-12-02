@@ -99,7 +99,7 @@ class Gift():
     pass
 ```
 
-[//]: # "Use `ClassName()` to create an object of class `ClassName`"
+Use `ClassName()` to create an object of class `ClassName`
 
 ```python
 >>> gift_1 = Gift()
@@ -195,13 +195,13 @@ class Gift():
     def pack(self, packer):
         print("This gift is packed by " + packer)
 
-    def gift(self, gifted):
+    def gift_to(self, gifted):
         print(f"This gift contains a {self.content} and is gifted to {gifted}.")
 
 
 def main():
     gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
-    gift_1.gift("David")
+    gift_1.gift_to("David")
 
 
 if __name__ == "__main__":
@@ -319,7 +319,7 @@ True
 ```
 
 ## Getter and setter methods
-Instead of using the `"."` (dot)-notation to access and edit data attributes outside classes, it's best practice to work with `getter` and `setter` methods.
+Instead of using the `"."` (dot) notation to access and edit data attributes outside classes, it's best practice to work with `getter` and `setter` methods.
 ```python
 class Gift():
     def __init__(self, content, width, height, color):
@@ -330,6 +330,28 @@ class Gift():
         return self.width
     def set_width(self, width):
         self.width = width
+```
+
+# How to use objects within objects
+```python
+class Gift():
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        self.height = height
+        self.color = color
+
+class ChristmasTree():
+  def __init__(self, max_gifts):
+    self.max_gifts = max_gifts
+    self.gifts = []
+  def place_gift(self, car):
+    self.gifts.append(gift)
+  def remove_gift(self, gift):
+    self.cars.remove(gift)
+  def get_contents(self):
+    for gift in self.gifts:
+      print(car.content)
 ```
 
 # Core Concepts of OOP
@@ -379,8 +401,8 @@ class Cat(Animal):
 
     tag = 0
 
-    def __init__(self, name, age):
-        Animal.__init__(self, age, parent1=None, parent2=None)
+    def __init__(self, name, age, parent1=None, parent2=None):
+        Animal.__init__(self, age)
         self.set_name(name)
         self.parent1 = parent1
         self.parent2 = parent2
