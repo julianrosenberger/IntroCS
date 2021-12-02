@@ -246,12 +246,12 @@ class MyClass():
 ```
 
 ```python
-class Person:
-    def __init__(self, name):
-        self.name = name            # <--- Create the .name attribute and set it to name parameter
+class Gift:
+    def __init__(self, content):
+        self.content = content            # <--- Create the .name attribute and set it to name parameter
         print("The __init__ method was called")
 
-person1 = Person("David Malan") # <--- __init__ is implicitly called
+gift_1 = Gift("CS50 Rubber Duck") # <--- __init__ is implicitly called
 ```
 Output:
 ```python
@@ -353,34 +353,39 @@ class Animal(object):
         return "animal:"+str(self.name)+":"+str(self.age)
 ```
 
-### Subclass Person
+### Subclass Cat
 ```python
-class Person(Animal):
-    def __init__(self, name, age):
+class Cat(Animal):
+    def __init__(self, name, age, parent1=None, parent2=None):
         Animal.__init__(self, age)
         self.set_name(name)
-        self.friends = []
-    def get_friends(self):
-        return self.friends
-    def add_friend(self, friend):
-        if name not in self.friends:
-            self.friends.append(friend)
+        self.parent1 = parent1
+        self.parent2 = parent2
+    def get_parents(self):
+        return str(self.parent1) + "," + str(self.parent2)
+    def set_parents(self, parent1=None, parent2=None):
+        if self.parent1 is None:
+            self.parent1 = parent1
+        if self.parent2 is None:
+            self.parent2 = parent2
     def speak(self):
-        print("hello")
+        print("meow")
     def __str__(self):
-        return "person:"+str(self.name)+":"+str(self.age)
+        return "Cat: "+str(self.name)+": "+str(self.age)
 ```
 
 ```python
-class Person(Animal):
+class Cat(Animal):
 
-    personID = 0
+    tag = 0
 
     def __init__(self, name, age):
-        Animal.__init__(self, age)
+        Animal.__init__(self, age, parent1=None, parent2=None)
         self.set_name(name)
-        self.ID = Person.personID
-        self.friends = []
+        self.parent1 = parent1
+        self.parent2 = parent2
+        self.cid = Cat.tag
+        Cat.tag += 1
 ```
 
 ```python
@@ -389,4 +394,91 @@ gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
 ```python
 print(gift_1.width)
 gift_1.get_width
+```
+
+##  Sepcial Methods in Python OOP
+Sepcial methods in OOP allow us to override common methods, which we know already.
+```python
+__add__(self, other)
+__sub__(self, other)
+__eq__(self, other)
+__lt__(self, other)
+__len__(self)
+__str__(self)
+```
+This maps to:
+```python
+self + other
+self - other
+self == other
+self < other
+len(self)
+print(self)
+```
+
+```python
+gift_1 = Gift()
+```
+
+# Polymorphism
+## Dynamic Typing
+```python
+## variable a is assigned to a string
+a = "hello"
+print(type(a))
+
+## variable a is assigned to an integer
+a = 5
+print(type(a))
+```
+Output:
+```
+str
+int
+```
+## Operator overloading
+- Python objects allow us to extend the meaning of default operator, e. g. `+` or `<` by using `__add__`and `__lt__`
+```python
+# Python program to show use of
+# + operator for different purposes.
+
+print(1 + 2)
+
+# concatenate two strings
+print("Geeks"+"For")
+
+# Product two numbers
+print(3 * 4)
+
+# Repeat the String
+print("Geeks"*4)
+```
+## Method overloading
+- In Python there is no possibility to overload methods, like in other languages (Java/C++)
+- However, we can achieve a similar behavior by using default parameters
+```python
+def product(a, b, c=1):
+    return a * b * c
+
+# without defining c=1 as default parameter, this line would throw an error
+print(product(5, 10))
+```
+## Method overriding
+```python
+class Animal(object):
+    def __init__(self):
+        self.value = "Inside parent"
+    def show(self):
+        print(self.value)
+
+class Cat(Animal):
+    def __init__(self):
+        self.value = "Inside children"
+    def show(self):
+        print(self.value)
+```
+Output:
+```
+Inside parent
+Inside children
 ```
