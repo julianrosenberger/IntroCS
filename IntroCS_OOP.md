@@ -277,6 +277,7 @@ Output:
 <__main__.Gift object at 0x10337ccd0>
 ```
 
+
 ```python
 class Gift():
     ...

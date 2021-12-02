@@ -91,6 +91,45 @@ def main():
     print(gift_1._get_width())
     print(gift_1.get_content())
 ```
+# Use objects within objects
+```python
+class Gift():
+    def __init__(self, content, width, height, color):
+        self.content = content
+        self.width = width
+        self.height = height
+        self.color = color
 
+
+class ChristmasTree():
+    def __init__(self, max_gifts):
+        self.max_gifts = max_gifts
+        self.gifts = []
+    def place_gift(self, gift):
+        self.gifts.append(gift)
+    def remove_gift(self, gift):
+        self.gifts.remove(gift)
+    def get_contents(self):
+        for gift in self.gifts:
+            print(gift.content)
+
+
+def main():
+    # Initialize gifts
+    gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0, "green")
+    gift_2 = Gift("CS50 Stress Ball", 30.0, 20.0, "pink")
+    # Initalize tree
+    tree = ChristmasTree(5)
+    tree.place_gift(gift_1)
+    tree.place_gift(gift_2)
+    tree.get_contents()
+    tree.remove_gift(gift_2)
+    print("After removal:")
+    tree.get_contents()
+
+
+if __name__ == "__main__":
+    main()
+```
 
 
