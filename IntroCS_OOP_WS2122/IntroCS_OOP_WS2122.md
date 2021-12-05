@@ -11,6 +11,11 @@
    1. [super()](#super())
    2. [Add and override attributes in subclasses](#add_attributes)
 5. [Polymorphism](#inheritance-allows-us-to-modify-methods-in-children-classes-which-is-one-of-the-most-common-forms-of-polymorphism)
+   1. [Dynamic typing](#dynamic-typing)
+   2. [Operator overloading](#operator-overloading)
+   3. [Method overloading](#method-overloading)
+   4. [Method overriding](#method-overriding)
+
 
 # Introduction <a id="introduction"></a>
 
