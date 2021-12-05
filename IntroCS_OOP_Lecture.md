@@ -7,8 +7,8 @@ class Gift():
 ```
 ## Create instances of class
 ```python
->>> gift_1 = Gift()
->>> gift_2 = Gift()
+gift_1 = Gift()
+gift_2 = Gift()
 ```
 ## Data attributes
 ```python
