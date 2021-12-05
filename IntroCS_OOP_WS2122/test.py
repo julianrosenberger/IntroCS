@@ -43,7 +43,7 @@ print(max.get_parents())'''
 print(product(5, 10))
 '''
 
-'''class Gift():
+class Gift():
     def __init__(self, content, width, height):
         self.__content = content
         self._width = width
@@ -60,15 +60,15 @@ gift_1 = Gift("CS50 Rubber Duck", 20.0, 40.0)
 
 ### Data attributes
 ## AttributeError: 'Gift' object has no attribute '__content
-#print(gift_1.__content)
+# print(gift_1.__content)
 print(gift_1._width)
 print(gift_1.height)
 
 ### Methods
 ## AttributeError: 'Gift' object has no attribute '__getHeight'
-#print(gift_1.__get_height())
+# print(gift_1.__get_height())
 print(gift_1._get_width())
-print(gift_1.get_content())'''
+print(gift_1.get_content())
 
 '''class Gift():
     def __init__(self, content, width, height, color):
