@@ -129,3 +129,8 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+a = 5
+a =+ 1
+
+print(a)
