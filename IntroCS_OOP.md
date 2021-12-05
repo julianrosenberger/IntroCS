@@ -1,4 +1,7 @@
-# Recap
+# Table of Contents
+1. [Programming-paradigms] (#programming-paradigms)
+2. 
+# Programming paradigms
 ## Arrays in C have a huge disadvantage.
 - All values stored in an `array` need to be of the same data type
 
